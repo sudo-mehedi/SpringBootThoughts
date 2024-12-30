@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{all :: head}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div th:replace="~{all :: navbar('Profile')}"></div>
+    <!-- Profile Page -->
+    <div id="profile" class="page">
+        <main class="profile-section">
+            <h2>Your Profile</h2>
+            <div>Name: John Doe</div>
+            <div>Username: @johndoe</div>
+            <div>Your Tweets:</div>
+            <div class="post" data-visibility="public">Post 1 (Public)</div>
+            <div class="post" data-visibility="private">Post 2 (Private)</div>
+        </main>
+    </div>
+</body>
+
+</html>

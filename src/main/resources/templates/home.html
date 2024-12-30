@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{all :: head}">
+</head>
+
+<body>
+    <div th:replace="~{all :: navbar('Home')}"></div>
+    <div th:fragment="home">
+        <div id="home" class="page">
+            <main class="feed">
+                <form th:action="@{/add}" method="post" th:object="${thought}">
+                    <textarea th:field="*{content}" name="content" placeholder="What's happening?"></textarea>
+                    <select th:field="*{isPublic}" name="isPublic" id="visibility">
+                        <option value="1" th:value="${true}">Public</option>
+                        <option value="0" th:value="${false}">Private</option>
+                    </select>
+                    <button type="submit">Post</button>
+                </form>
+                <div th:each="thought : ${thoughts}">
+                    <div class="post" th:if="${thought.isPublic}">
+                        <p th:text="${thought.content}"></p>
+                        <p th:text="${#temporals.format(thought.createdAt, 'yyyy-MM-dd hh:mm a')}"></p>
+                    </div>
+                </div>
+
+
+                <div>
+                    <ul>
+                        <li th:each="page: ${#numbers.sequence(1, totalPage-1)}">
+                            <a th:href="@{'?page=' + ${page}}">[[${page}]]</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
