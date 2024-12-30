@@ -25,9 +25,9 @@
                 </div>
 
 
-                <div>
+                <div style="display: flex; justify-content: center;">
                     <ul>
-                        <li th:each="page: ${#numbers.sequence(1, totalPage-1)}">
+                        <li style="float: left; padding: 10px; margin: 5px; background-color: #1da1f2; color: white; border-radius: 5px; list-style: none;" th:each="page: ${#numbers.sequence(1, totalPage-1)}">
                             <a th:href="@{'?page=' + ${page}}">[[${page}]]</a>
                         </li>
                     </ul>
